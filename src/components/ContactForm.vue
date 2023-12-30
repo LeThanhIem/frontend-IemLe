@@ -20,14 +20,12 @@
             <Field name="phone" type="tel" class="form-control" v-model="contactLocal.phone" />
             <ErrorMessage name="phone" class="error-feedback" />
         </div>
-
         <div class="form-group form-check">
             <input name="favorite" type="checkbox" class="form-check-input" v-model="contactLocal.favorite" />
             <label for="favorite" class="form-check-label">
                 <strong>Liên hệ yêu thích</strong>
             </label>
         </div>
-
         <div class="form-group">
             <button class="btn btn-primary">Lưu</button>
             <button v-if="contactLocal._id" type="button" class="ml-2 btn btn-danger" @click="deleteContact">
@@ -36,11 +34,9 @@
         </div>
     </Form>
 </template>
-
 <script>
 import * as yup from "yup";
 import { Form, Field, ErrorMessage } from "vee-validate";
-
 export default {
     components: {
         Form,
@@ -71,8 +67,6 @@ export default {
                 ),
         });
         return {
-            // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
-            // contactLocal để liên kết với các input trên form
             contactLocal: this.contact,
             contactFormSchema,
         };
@@ -87,7 +81,6 @@ export default {
     },
 };
 </script>
-
 <style scoped>
 @import "@/assets/form.css";
-</style>
+</style>    

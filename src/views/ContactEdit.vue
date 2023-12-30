@@ -5,11 +5,9 @@
         <p>{{ message }}</p>
     </div>
 </template>
-
 <script>
 import ContactForm from "@/components/ContactForm.vue";
 import ContactService from "@/services/contact.service";
-
 export default {
     components: {
         ContactForm,
@@ -29,7 +27,6 @@ export default {
                 this.contact = await ContactService.get(id);
             } catch (error) {
                 console.log(error);
-                // Chuyển sang trang NotFound đồng thời giữ cho URL không đổi
                 this.$router.push({
                     name: "notfound",
                     params: {
@@ -40,7 +37,6 @@ export default {
                 });
             }
         },
-
         async updateContact(data) {
             try {
                 await ContactService.update(this.contact._id, data);
@@ -49,7 +45,6 @@ export default {
                 console.log(error);
             }
         },
-
         async deleteContact() {
             if (confirm("Bạn muốn xóa Liên hệ này?")) {
                 try {
